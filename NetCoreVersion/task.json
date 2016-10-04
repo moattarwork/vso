@@ -1,40 +1,31 @@
 {
-    "id": "76efb6c1-33dd-46e5-8ee3-a03e5c69b3e2",
+    "id": "7c71bb10-8a6f-11e6-aca4-6b5aaa056188",
     "name": "DotNetCore-SetVersion",
-    "friendlyName": ".Net Core Set Version to build number",
+    "friendlyName": ".Net Core - Set Version Task",
     "description": "Set version to project.json file from VSO build version. Build version should be in <major>.<minor>.<build-id> format",
-    "helpMarkDown": "",
+    "author": "Mohammad Moattar, Tahereh Farrokhi",
+    "helpMarkDown": "Replace with markdown to show in help",
     "category": "Utility",
     "visibility": [
-        "Build"
+        "Build",
+        "Release"
     ],
-    "runsOn": [
-        "Agent",
-        "MachineGroup"
-    ],
-    "author": "Mohammad Moattar",
-    "version": {
-        "Major": 1,
-        "Minor": 1,
-        "Patch": 1
-    },
     "demands": [],
-    "minimumAgentVersion": "1.91.0",
-    "groups": [
-        {
-            "name": "advanced",
-            "displayName": "Advanced",
-            "isExpanded": false
-        }
-    ],
+    "version": {
+        "Major": "1",
+        "Minor": "0",
+        "Patch": "0"
+    },
+    "minimumAgentVersion": "1.95.0",
+    "instanceNameFormat": "NetCoreVersion $(message)",
     "inputs": [
         {
-            "name": "sourceFolder",
+            "name": "cwd",
             "type": "filePath",
-            "label": "Source Folder",
+            "label": "Working Directory",
             "defaultValue": "$(Build.SourcesDirectory)",
             "required": false,
-            "helpMarkDown": "The location for sources that can find project.json"
+            "helpMarkDown": "Current working directory when NetCoreVersion is run."
         },
         {
             "name": "buildNumber",
@@ -43,9 +34,8 @@
             "defaultValue": "$(Build.BuildNumber)",
             "required": true,
             "helpMarkDown": "Build number should be setup in general variables. it should have major.minor.buildid format like 1.0.$(BuildID)"
-        }        
+        }
     ],
-    "instanceNameFormat": "Set build number to $(buildNumber)",
     "execution": {
         "PowerShell3": {
             "target": "SetVersion.ps1 -SourceFolder $(sourceFolder) -BuildNumber $(buildNumber)",
