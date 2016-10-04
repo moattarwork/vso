@@ -14,13 +14,13 @@
     "version": {
         "Major": "1",
         "Minor": "0",
-        "Patch": "1"
+        "Patch": "2"
     },
     "minimumAgentVersion": "1.95.0",
     "instanceNameFormat": "NetCoreVersion $(message)",
     "inputs": [
         {
-            "name": "sourceFolder",
+            "name": "SourceFolder",
             "type": "filePath",
             "label": "Source Folder",
             "defaultValue": "$(Build.SourcesDirectory)",
@@ -28,7 +28,7 @@
             "helpMarkDown": "Current working directory when NetCoreVersion is run."
         },
         {
-            "name": "buildNumber",
+            "name": "BuildNumber",
             "type": "string",
             "label": "Build Number",
             "defaultValue": "$(Build.BuildNumber)",
@@ -38,7 +38,7 @@
     ],
     "execution": {
         "PowerShell3": {
-            "target": "SetVersion.ps1 -SourceFolder $(sourceFolder) -BuildNumber $(buildNumber)",
+            "target": "SetVersion.ps1",
             "platforms": [
                 "windows"
             ]
