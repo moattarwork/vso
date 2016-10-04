@@ -2,8 +2,8 @@
 [cmdletbinding()]
 
 param(
-    [string] $SourceFolder, 
-    [string] $BuildNumber = "1.0.0")
+    [string]$SourceFolder, 
+    [string]$BuildNumber = "1.0.0")
 
 function Set-PackageVersion([String]$version, [String]$sourceFolder, [String]$filename = "project.json") {
     
