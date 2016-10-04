@@ -1,6 +1,6 @@
 {
     "id": "7c71bb10-8a6f-11e6-aca4-6b5aaa056188",
-    "name": "DotNetCore-SetVersion",
+    "name": "DotNetCoreSetVersion",
     "friendlyName": ".Net Core - Set Version Task",
     "description": "Set version to project.json file from VSO build version. Build version should be in <major>.<minor>.<build-id> format",
     "author": "Mohammad Moattar, Tahereh Farrokhi",
